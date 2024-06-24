@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>송다은</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <div class="btns">
+        <div class="container">
+            <div class="btns_bgcolor"></div>
+            <div class="btns_menu">
+                <button class="btn home">Introduction</button>
+                <button class="btn about">Edit Design</button>
+                <button class="btn skills">Image Shooting</button>
+                <button class="btn works">Redesign</button>
+                <button class="btn contact">Webdesign</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="home">
+        <div class="wrapper">
+            <img src="imgs/main.png" alt="">
+            <h2>송다은</h2>
+            <h3>한국폴리텍대학 서울정수캠 | 시각디자인과</h3>
+        </div>
+    </section>
+    <section id="about">
+        <div class="wrapper">
+            <h1>Edit Design</h1>
+            <h2>한국의 전통, 한복의 멋</h2>
+            <img src="imgs/1.png" alt="">
+            <h3>빛, 시간</h3>
+            <p>한국의 전통과 한복에 대해서 편집디자인으로 표현한 디자인 <br>한복은 복잡하지 않고 은은한 아름다움이 있기 때문에 여백을 살린 디자인으로 한복의 아름다움을 극대화 </p>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="wrapper">
+            <h1>Image Shooting</h1>
+            <h2>원더랜드로 떠나는 여행</h2>
+            <img src="imgs/2.png" alt="">
+            <h3>액션의 몰입감</h3>
+            <p>닌텐도는 화려한 액션에 맞게 진동과 3D로 몰임감을 높여주어 게임에 빠져드는 듯한 느낌을 그래픽으로 연출</p>
+        </div>
+    </section>
+    <section id="works">
+        <div class="wrapper">
+            <h1>Redesign</h1>
+            <h2>다른 시각과 느낌으로</h2>
+            <img src="imgs/3.jpg" alt="">
+            <h3>표지와 한국 현대사</h3>
+            <p>빠른 속도로 발전하는 기술로 적응하지 못하는 사람들의 비극을 담은 '난쟁이가 쏘아올린 작은 공' 이야기를 표지로 연출</p>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="wrapper">
+            <h1>Webdesign</h1>
+            <h2>디자인을 코딩으로</h2>
+            <img src="imgs/4.png" alt="">
+            <h3>MBL</h3>
+            <p>이미지의 크기와 코딩의 입력값에 따라 달라지는 웹을 디자인 시안을 바탕으로 제작</p>
+        </div>
+    </section>
+    <button class="arrow-up">
+        <span class="material-symbols-outlined">
+            arrow_upward
+        </span>
+    </button>
+
+    <script>
+        const btnHome = document.querySelector('.home');
+        const sectionHome = document.querySelector('#home');
+        btnHome.addEventListener('click', function() {
+            sectionHome.scrollIntoView({behavior:"smooth", block:"center"})
+        });
+        const btnAbout = document.querySelector('.about');
+        const sectionAbout = document.querySelector('#about');
+        btnAbout.addEventListener('click', function() {
+            sectionAbout.scrollIntoView({behavior:"smooth", block:"center"})
+        });
+        const btnSkills = document.querySelector('.skills');
+        const sectionSkills = document.querySelector('#skills');
+        btnSkills.addEventListener('click', function() {
+            sectionSkills.scrollIntoView({behavior:"smooth", block:"center"})
+        });
+        const btnWorks = document.querySelector('.works');
+        const sectionWorks = document.querySelector('#works');
+        btnWorks.addEventListener('click', function() {
+            sectionWorks.scrollIntoView({behavior:"smooth", block:"center"})
+        });
+        const btnContact = document.querySelector('.contact');
+        const sectionContact = document.querySelector('#contact');
+        btnContact.addEventListener('click', function() {
+            sectionContact.scrollIntoView({behavior:"smooth", block:"center"})
+        });
+
+        const arrowUp = document.querySelector('.arrow-up');
+        document.addEventListener('scroll', function() {
+            console.log(window.scrollY);
+            if (window.scrollY > 300) {
+                arrowUp.classList.add('show');
+            } else {
+                arrowUp.classList.remove('show');
+            }
+        })
+        arrowUp.addEventListener('click', function() {
+            sectionHome.scrollIntoView({behavior:"smooth", block:"center"})
+        });
+
+
+
+    </script>
+</body>
+</html>
