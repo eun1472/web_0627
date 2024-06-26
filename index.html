@@ -27,9 +27,12 @@
 
     <section id="home">
         <div class="wrapper">
-            <img src="imgs/main.png" alt="">
-            <h2>송다은</h2>
-            <h3>한국폴리텍대학 서울정수캠 | 시각디자인과</h3>
+            <img src="imgs/main.jpg" alt="">
+            <h1>그림으로 소통하다</h1>
+            <h2>디자이너 | 송다은</h2>
+            <h3>시각디자인을 전공하고 있으며 편집디자인과 사진 촬영 등으로 많은 경험을 쌓고 있는 예술인입니다. 
+                <br>그 외에도 다양한 그림을 그리며 자기개발을 꾸준히 하고 있는 작은 사람입니다.
+            </h3>
         </div>
     </section>
     <section id="about">
@@ -68,6 +71,7 @@
             <p>이미지의 크기와 코딩의 입력값에 따라 달라지는 웹을 디자인 시안을 바탕으로 제작</p>
         </div>
     </section>
+
     <button class="arrow-up">
         <span class="material-symbols-outlined">
             arrow_upward
@@ -110,12 +114,22 @@
                 arrowUp.classList.remove('show');
             }
         })
+
         arrowUp.addEventListener('click', function() {
             sectionHome.scrollIntoView({behavior:"smooth", block:"center"})
         });
 
-
-
+        document.addEventListener('DOMContentLoaded', () => {
+            const imgs = document.querySelector('#home .wrapper img');
+    
+            // Function to add the visible class
+            function showImage() {
+                imgs.classList.add('visible');
+            }
+    
+            // Add the visible class on load to trigger the transition
+            window.addEventListener('load', showImage);
+        });
     </script>
 </body>
 </html>
