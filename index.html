@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <section id="home">
+    <section id="home"> 
         <div class="wrapper">
             <img src="imgs/main.jpg" alt="">
             <h1>그림으로 소통하다</h1>
@@ -39,7 +39,7 @@
         <div class="wrapper">
             <h1>Edit Design</h1>
             <h2>한국의 전통, 한복의 멋</h2>
-            <img src="imgs/1.png" alt="">
+            <img class="profile-img invisible" src="imgs/1.png" alt="프로필 이미지">
             <h3>빛, 시간</h3>
             <p>한국의 전통과 한복에 대해서 편집디자인으로 표현한 디자인 <br>한복은 복잡하지 않고 은은한 아름다움이 있기 때문에 여백을 살린 디자인으로 한복의 아름다움을 극대화 </p>
         </div>
@@ -48,7 +48,7 @@
         <div class="wrapper">
             <h1>Image Shooting</h1>
             <h2>원더랜드로 떠나는 여행</h2>
-            <img src="imgs/2.png" alt="">
+            <img class="profile-img invisible" src="imgs/2.png" alt="프로필 이미지">
             <h3>액션의 몰입감</h3>
             <p>닌텐도는 화려한 액션에 맞게 진동과 3D로 몰임감을 높여주어 게임에 빠져드는 듯한 느낌을 그래픽으로 연출</p>
         </div>
@@ -57,7 +57,7 @@
         <div class="wrapper">
             <h1>Redesign</h1>
             <h2>다른 시각과 느낌으로</h2>
-            <img src="imgs/3.jpg" alt="">
+            <img class="profile-img invisible" src="imgs/3.jpg" alt="프로필 이미지">
             <h3>표지와 한국 현대사</h3>
             <p>빠른 속도로 발전하는 기술로 적응하지 못하는 사람들의 비극을 담은 '난쟁이가 쏘아올린 작은 공' 이야기를 표지로 연출</p>
         </div>
@@ -66,8 +66,8 @@
         <div class="wrapper">
             <h1>Webdesign</h1>
             <h2>디자인을 코딩으로</h2>
-            <img src="imgs/4.png" alt="">
-            <h3>MBL</h3>
+            <img class="profile-img invisible" src="imgs/4.png" alt="프로필 이미지">
+            <h3>내 마음대로 Redesign</h3>
             <p>이미지의 크기와 코딩의 입력값에 따라 달라지는 웹을 디자인 시안을 바탕으로 제작</p>
         </div>
     </section>
@@ -121,15 +121,43 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const imgs = document.querySelector('#home .wrapper img');
-    
-            // Function to add the visible class
             function showImage() {
                 imgs.classList.add('visible');
             }
-    
-            // Add the visible class on load to trigger the transition
             window.addEventListener('load', showImage);
         });
+
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            var profileImgs = document.querySelectorAll(".profile-img");
+
+            function isInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function showVisibleImages() {
+                profileImgs.forEach(function(img) {
+                    if (isInViewport(img)) {
+                        img.classList.add("visible");
+                    }
+                });
+            }
+
+            
+            showVisibleImages();
+
+            
+            document.addEventListener("scroll", showVisibleImages);
+        });
+
+
+
     </script>
 </body>
 </html>
